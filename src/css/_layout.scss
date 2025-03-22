@@ -161,7 +161,7 @@ footer p {
     }
 }
 
-#imageanimation:hover {
+#imageAnimation:hover {
    animation: zoomAnimation 4s alternate;
 }
 
@@ -188,10 +188,46 @@ footer p {
     }
 }
 
-#imageAnimation:active {
-    animation: dropAnimation duration timing-function delay iteration-count direction fill-mode;
+.drop-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
 }
 
+.drop {
+    position: absolute;
+    top: -50px;
+    height: auto;
+    opacity: 0;
+    animation: none;
+}
+
+.drop:hover {
+    box-shadow: none;
+}
+
+#imageAnimation:active ~ .drop-container .drop {
+    animation: dropAnimation 2s linear forwards;
+    opacity: 1;
+}
+
+.drop:nth-child(1) { left: 10%; }
+.drop:nth-child(2) { left: 30%; }
+.drop:nth-child(3) { left: 50%; }
+.drop:nth-child(4) { left: 70%; }
+.drop:nth-child(5) { left: 90%; }
+
 @keyframes dropAnimation {
-    
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
