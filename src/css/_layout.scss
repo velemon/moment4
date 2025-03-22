@@ -162,7 +162,7 @@ footer p {
 }
 
 #imageAnimation:hover {
-   animation: zoomAnimation 4s alternate;
+    animation: zoomAnimation 4s alternate;
 }
 
 @keyframes zoomAnimation {
@@ -171,10 +171,10 @@ footer p {
     }
 
     25% {
-        transform: scale(1.2,1.2);
+        transform: scale(1.2, 1.2);
         box-shadow: 0px 10px 20px rgba(63, 69, 140, 0.8);
     }
-    
+
     50% {
         box-shadow: -10px 0px 20px rgba(30, 45, 212, 0.5);
     }
@@ -210,23 +210,38 @@ footer p {
     box-shadow: none;
 }
 
-#imageAnimation:active ~ .drop-container .drop {
+#imageAnimation:active~.drop-container .drop {
     animation: dropAnimation 2s linear forwards;
     opacity: 1;
 }
 
-.drop:nth-child(1) { left: 10%; }
-.drop:nth-child(2) { left: 30%; }
-.drop:nth-child(3) { left: 50%; }
-.drop:nth-child(4) { left: 70%; }
-.drop:nth-child(5) { left: 90%; }
+.drop:nth-child(1) {
+    left: 10%;
+}
+
+.drop:nth-child(2) {
+    left: 30%;
+}
+
+.drop:nth-child(3) {
+    left: 50%;
+}
+
+.drop:nth-child(4) {
+    left: 70%;
+}
+
+.drop:nth-child(5) {
+    left: 90%;
+}
 
 @keyframes dropAnimation {
-    0%{
+    0% {
         transform: translateY(0);
         opacity: 1;
     }
-    100%{
+
+    100% {
         transform: translateY(100vh);
         opacity: 0;
     }
