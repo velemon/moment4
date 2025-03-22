@@ -163,6 +163,7 @@ footer p {
 
 #imageAnimation:hover {
     animation: zoomAnimation 4s alternate;
+    cursor: pointer;
 }
 
 @keyframes zoomAnimation {
@@ -248,7 +249,15 @@ footer p {
 }
 
 .titleAnimation {
+    transition: color 2s 500ms;
+    transition: text-shadow 3s 500ms;
     animation: titleJump 3s 0.5s ease-in 1 both;
+}
+
+.titleAnimation:hover {
+    cursor: pointer;
+    color: rgba(140, 63, 63, 0.8);
+    text-shadow: rgba(255, 0, 0, 0.872) 1px 0 30px;
 }
 
 @keyframes titleJump {
