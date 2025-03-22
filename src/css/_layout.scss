@@ -1,0 +1,162 @@
+//sidans utseende så som grid, flexbox och containers
+@use "base";
+@use "component";
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --main-bg: rgba(139, 64, 64, 0.043);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: black;
+        --text-color: white;
+        --main-bg: rgba(255, 255, 255, 0.091);
+    }
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    @if base.$theme ==dark {
+        background-color: black;
+        color: white;
+
+        main {
+            background-color: base.$background-color-dark;
+        }
+
+    }
+
+    else {
+        background-color: white;
+        color: black;
+
+        main {
+            background-color: base.$background-color-light;
+        }
+    }
+}
+
+#intro {
+    @include base.intro-border;
+}
+
+nav,
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: base.$menu-color;
+}
+
+nav {
+
+    a {
+        @include base.menu-a;
+    }
+
+    li {
+        @include base.menu-li;
+        @include base.hover-link;
+        @include base.click-link;
+    }
+
+    ul {
+        list-style: none;
+    }
+}
+
+.current {
+    @include base.current-page;
+}
+
+.third-title {
+    font-family: base.$font-stack;
+    @include base.title;
+}
+
+h2 {
+    @extend .third-title;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+header p {
+    margin-left: 1em;
+    padding: 0.5em;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: base.$font-stack;
+}
+
+#sass-header {
+    margin-bottom: 3em;
+}
+
+main {
+    max-width: 110ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: base.$background-color-light;
+    padding: 2em;
+    margin: 0 auto;
+    border-radius: 4em;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background: var(--main-bg);
+
+    p {
+        font-family: base.$secondary-font;
+        line-height: 1.5em;
+    }
+}
+
+header p,
+main li {
+    font-family: base.$secondary-font;
+    line-height: 1.5em;
+}
+
+.source {
+    color: base.$source-color;
+    margin-bottom: 1em;
+}
+
+footer {
+    @include base.footer;
+}
+
+footer p {
+    margin: 2em;
+}
+
+@media screen and (max-width: 499px) {
+    nav {
+        height: fit-content;
+        padding-top: 5%;
+
+        li {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .current {
+            background-color: base.$click-color;
+            border-radius: 1em;
+        }
+    }
+}
